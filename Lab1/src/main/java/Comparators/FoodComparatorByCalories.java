@@ -1,3 +1,5 @@
+package Comparators;
+
 import Models.Food;
 
 import java.util.Comparator;

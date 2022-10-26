@@ -1,3 +1,5 @@
+package Models;
+
 public class Cocktail extends Food {
     private String drink;
     private String fruit;
@@ -26,7 +28,7 @@ public class Cocktail extends Food {
 
     @Override
     public String toString() {
-        return "Cocktail{" +
+        return "Models.Cocktail{" +
                 "drink='" + drink + '\'' +
                 ", fruit='" + fruit + '\'' +
                 ", name='" + name + '\'' +

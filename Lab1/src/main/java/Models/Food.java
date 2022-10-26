@@ -1,3 +1,5 @@
+package Models;
+
 import Interfaces.Nutritious;
 
 import java.util.Random;
@@ -29,7 +31,7 @@ public abstract class Food implements Nutritious {
 
     @Override
     public String toString() {
-        return "Food{" +
+        return "Models.Food{" +
                 "name='" + name + '\'' +
                 '}';
     }
