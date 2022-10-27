@@ -1,10 +1,13 @@
 package Tests;
 
 import Controllers.GenericController;
+import Handlers.Host;
+import Interfaces.IHost;
 import Models.Cocktail;
 import Repositories.CocktailRepository;
-import org.junit.jupiter.api.Test;
-import org.testng.Assert;
+import RuntimeExceptions.MyException;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -44,5 +47,11 @@ public class CocktailControllerTest {
         ArrayList<Cocktail> actual = cocktailController.getAllSortedByCalories();
 
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test(expected = MyException.class)
+    public void whenExceptionThrown_thenExpectationSatisfied() {
+        IHost cocktailHost = new Host(new String[] { "-gg" }, new GenericController(new CocktailRepository()));
+        cocktailHost.execute();
     }
 }

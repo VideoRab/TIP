@@ -1,10 +1,14 @@
 package Tests;
 
 import Controllers.GenericController;
+import Handlers.Host;
+import Interfaces.IHost;
 import Models.Pie;
+import Repositories.CocktailRepository;
 import Repositories.PieRepository;
-import org.junit.jupiter.api.Test;
-import org.testng.Assert;
+import RuntimeExceptions.MyException;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -45,5 +49,11 @@ public class PieControllerTest {
         ArrayList<Pie> actual = pieController.getAllSortedByCalories();
 
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test(expected = MyException.class)
+    public void whenExceptionThrown_thenExpectationSatisfied() {
+        IHost pieHost = new Host(new String[] { "-gg" }, new GenericController(new PieRepository()));
+        pieHost.execute();
     }
 }
