@@ -1,4 +1,9 @@
+package Repositories;
+
+import Comparators.FoodComparatorByCalories;
 import Interfaces.IGenericRepository;
+import Models.Cocktail;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -18,7 +23,7 @@ public class CocktailRepository implements IGenericRepository<Cocktail> {
 
     @Override
     public int getSumOfCalories() {
-        int result = dbSet.stream().mapToInt(tEntity -> tEntity.calories).sum();
+        int result = dbSet.stream().mapToInt(tEntity -> tEntity.getCalories()).sum();
         return result;
     }
 

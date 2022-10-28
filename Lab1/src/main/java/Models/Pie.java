@@ -1,3 +1,5 @@
+package Models;
+
 public class Pie extends Food {
     private String filling;
 

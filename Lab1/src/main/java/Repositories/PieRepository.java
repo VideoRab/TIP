@@ -1,4 +1,8 @@
+package Repositories;
+
+import Comparators.FoodComparatorByCalories;
 import Interfaces.IGenericRepository;
+import Models.Pie;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -19,7 +23,7 @@ public class PieRepository implements IGenericRepository<Pie> {
 
     @Override
     public int getSumOfCalories() {
-        int result = dbSet.stream().mapToInt(tEntity -> tEntity.calories).sum();
+        int result = dbSet.stream().mapToInt(tEntity -> tEntity.getCalories()).sum();
         return result;
     }
 

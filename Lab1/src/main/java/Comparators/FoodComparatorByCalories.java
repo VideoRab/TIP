@@ -1,3 +1,7 @@
+package Comparators;
+
+import Models.Food;
+
 import java.util.Comparator;
 
 public class FoodComparatorByCalories implements Comparator<Food> {
