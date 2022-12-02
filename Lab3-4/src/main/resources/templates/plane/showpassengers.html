@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+  <div style="display: inline-block">
+    <table border="1px black">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Patronymic</th>
+        <th>passportCardNo</th>
+      </tr>
+      <tr th:each="passenger : ${plane.passengers}">
+        <td th:text="${passenger.id}"></td>
+        <td th:text="${passenger.name}"></td>
+        <td th:text="${passenger.surname}"></td>
+        <td th:text="${passenger.patronymic}"></td>
+        <td th:text="${passenger.passportCardNo}"></td>
+      </tr>
+    </table>
+  </div>
+  <div style="display: inline-block">
+    <table>
+      <tr>
+        <th></th>
+      </tr>
+      <tr th:each="passenger : ${plane.passengers}">
+        <td>
+          <a th:href="@{'../../../../passenger/update-passenger/' + ${passenger.id}}">Update</a>
+          <a th:href="@{'../../../../passenger/delete-passenger/' + ${passenger.id}}">Delete</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<a href="/plane/get-planes">Back</a>
+<a href="../../../../passenger/create-passenger/"  th:href="@{'../../../../passenger/create-passenger/' + ${plane.id}}">Add passenger</a>
+</body>
+</html>

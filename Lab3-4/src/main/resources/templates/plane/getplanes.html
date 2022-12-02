@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Planes</title>
+</head>
+<body>
+<div>
+    <div style="display: inline-block">
+        <table border="1px black">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr th:each="plane : ${planes}">
+                <td th:text="${plane.id}"></td>
+                <td th:text="${plane.name}"></td>
+            </tr>
+        </table>
+    </div>
+    <div style="display: inline-block">
+        <table>
+            <tr>
+                <th></th>
+            </tr>
+            <tr th:each="plane : ${planes}">
+                <td>
+                    <a th:href="@{'/plane/show-passengers/' + ${plane.id}}">Show passengers</a>
+                    <a th:href="@{'/plane/update-plane/' + ${plane.id}}">Update</a>
+                    <a th:href="@{'/plane/delete-plane/' + ${plane.id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<a href="/plane/create-plane">Add plane</a>
+</body>
+</html>
